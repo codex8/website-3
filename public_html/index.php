@@ -52,7 +52,7 @@ switch ($menu) {
         break;
     case "about":
         $smarty->display('about.tpl');
-		$smarty->display('boxes.tpl');
+		$smarty->display('directors.tpl');
         break;
     case "contact":
         $smarty->display('contact.tpl');
