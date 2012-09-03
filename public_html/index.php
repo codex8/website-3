@@ -2,13 +2,16 @@
 date_default_timezone_set('Europe/London');
 require('../libs/Smarty.class.php');
 
-echo "<!-- orchestra.io test 4.2 -->";
+echo "<!-- orchestra.io test 4.3 -->";
 
 $smarty = new Smarty;
 
 $sys_tmp_dir = sys_get_temp_dir();
-mkdir($sys_tmp_dir."/phplondonorg");
-mkdir($sys_tmp_dir."/phplondonorg/templates_c");
+
+if (!is_dir($sys_tmp_dir."/phplondonorg/templates_c")){
+	mkdir($sys_tmp_dir."/phplondonorg");
+	mkdir($sys_tmp_dir."/phplondonorg/templates_c");
+}
 
 $smarty->compile_dir  = $sys_tmp_dir."/phplondonorg/templates_c/";
 
