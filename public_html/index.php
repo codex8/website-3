@@ -9,9 +9,9 @@ if(empty($menu)) { $menu = "home"; }
 
 $smarty->assign("menu", $menu);
 
-$smarty->force_compile = true;
+$smarty->force_compile = false;
 $smarty->debugging = false;
-$smarty->caching = true;
+$smarty->caching = false;
 $smarty->cache_lifetime = 120;
 
 $smarty->display('header.tpl');
