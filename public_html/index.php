@@ -15,7 +15,9 @@ if (!is_dir($sys_tmp_dir."/phplondonorg/templates_c")){
 
 $smarty->compile_dir  = $sys_tmp_dir."/phplondonorg/templates_c/";
 
-$menu = strtolower(filter_input(INPUT_GET, 'menu', FILTER_SANITIZE_STRING));
+$menu = strtolower(filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_STRING));
+$menu = str_replace("/", "", $menu);
+
 if(empty($menu)) { $menu = "home"; }
 
 $smarty->assign("menu", $menu);
