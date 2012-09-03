@@ -12,7 +12,7 @@ $smarty->assign("menu", $menu);
 $smarty->force_compile = false;
 $smarty->debugging = false;
 $smarty->caching = false;
-$smarty->cache_lifetime = 120;
+//marty->cache_lifetime = 120;
 
 $smarty->display('header.tpl');
 
