@@ -2,6 +2,8 @@
 date_default_timezone_set('Europe/London');
 require('../libs/Smarty.class.php');
 
+echo "<!-- orchestra.io test -->";
+
 $smarty = new Smarty;
 
 $menu = strtolower(filter_input(INPUT_GET, 'menu', FILTER_SANITIZE_STRING));
