@@ -2,7 +2,7 @@
 date_default_timezone_set('Europe/London');
 require('../libs/Smarty.class.php');
 
-echo "<!-- orchestra.io test 4.1 -->";
+echo "<!-- orchestra.io test 4.2 -->";
 
 $smarty = new Smarty;
 
