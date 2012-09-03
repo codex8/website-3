@@ -6,8 +6,11 @@ echo "<!-- orchestra.io test 4.1 -->";
 
 $smarty = new Smarty;
 
-$smarty->compile_dir  = getcwd()."/templates_c/";
-//mnt/orchestra-virtualized/home/phplondon-org/var/www/site/latest/public_html
+$sys_tmp_dir = sys_get_temp_dir();
+mkdir($sys_tmp_dir."/phplondonorg");
+mkdir($sys_tmp_dir."/phplondonorg/templates_c");
+
+$smarty->compile_dir  = $sys_tmp_dir."/phplondonorg/templates_c/";
 
 $menu = strtolower(filter_input(INPUT_GET, 'menu', FILTER_SANITIZE_STRING));
 if(empty($menu)) { $menu = "home"; }
