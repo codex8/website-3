@@ -2,9 +2,12 @@
 date_default_timezone_set('Europe/London');
 require('../libs/Smarty.class.php');
 
-echo "<!-- orchestra.io test 3 -->";
+echo "<!-- orchestra.io test 4.1 -->";
 
 $smarty = new Smarty;
+
+$smarty->compile_dir  = getcwd()."/templates_c/";
+//mnt/orchestra-virtualized/home/phplondon-org/var/www/site/latest/public_html
 
 $menu = strtolower(filter_input(INPUT_GET, 'menu', FILTER_SANITIZE_STRING));
 if(empty($menu)) { $menu = "home"; }
