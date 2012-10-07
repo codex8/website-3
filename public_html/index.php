@@ -42,6 +42,7 @@ $smarty->caching = false;
 
 
 
+
 $smarty->display('header.tpl');
 
 switch ($menu) {
