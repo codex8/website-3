@@ -4,14 +4,25 @@ require('../libs/Smarty.class.php');
 
 $smarty = new Smarty;
 
-$menu = strtolower(filter_input(INPUT_GET, 'menu', FILTER_SANITIZE_STRING));
+$sys_tmp_dir = sys_get_temp_dir();
+
+if (!is_dir($sys_tmp_dir."/phplondonorg/templates_c")){
+    mkdir($sys_tmp_dir."/phplondonorg");
+    mkdir($sys_tmp_dir."/phplondonorg/templates_c");
+}
+
+$smarty->compile_dir  = $sys_tmp_dir."/phplondonorg/templates_c/";
+
+$menu = strtolower(filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_STRING));
+$menu = str_replace("/", "", $menu);
+
 if(empty($menu)) { $menu = "home"; }
 
 $smarty->assign("menu", $menu);
 
-$smarty->force_compile = true;
+$smarty->force_compile = false;
 $smarty->debugging = false;
-$smarty->caching = true;
+$smarty->caching = false;
 $smarty->cache_lifetime = 120;
 
 $smarty->display('header.tpl');
