@@ -14,6 +14,7 @@ if (!is_dir($sys_tmp_dir."/phplondonorg/templates_c")){
 $smarty->compile_dir  = $sys_tmp_dir."/phplondonorg/templates_c/";
 
 $menu = strtolower(filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_STRING));
+
 $menu = str_replace("/", "", $menu);
 
 if(empty($menu)) { $menu = "home"; }
@@ -26,8 +27,8 @@ $smarty->caching = false;
 $smarty->cache_lifetime = 120;
 
 $smarty->display('header.tpl');
-
 switch ($menu) {
+
 
     case "home":
         $smarty->display('home.tpl');
@@ -41,9 +42,8 @@ switch ($menu) {
         $smarty->display('contact.tpl');
         break;
 	default:
-		// TODO: Replace with a proper 404
-        $smarty->display('home.tpl');
-		$smarty->display('boxes.tpl');
+		$smarty->display('default.tpl');
+        
 }
 $smarty->display('footer.tpl');
 ?>

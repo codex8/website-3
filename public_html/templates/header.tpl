@@ -10,6 +10,7 @@
 
     <!-- Le styles -->
     <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./bootstrap/css/phplondon.css" rel="stylesheet">
     <style type="text/css">
 	{literal}
       body {
