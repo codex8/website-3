@@ -4,6 +4,7 @@
   <head>
     <meta charset="utf-8">
     <title>PHP London - {#title#} - The UK's number one PHP User group</title>
+	<meta name="google-site-verification" content="zvPGcBQCeX7sZRJqccKJ1oPWdPx7mtQDs2lJywSngoU" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
