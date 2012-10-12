@@ -11,6 +11,6 @@
           <p><a class="btn" href="http://www.phplondon.org/wiki/Job_offers">View Jobs &raquo;</a></p>
        </div>
         <div class="span4">
-          <iframe width="225" height="570" src="http://meetu.ps/fxrhW" frameborder="0"></iframe>
+         <!-- <iframe width="225" height="570" src="http://meetu.ps/fxrhW" frameborder="0"></iframe>-->
         </div>
       </div>
