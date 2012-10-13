@@ -20,12 +20,22 @@ $menu = str_replace("/", "", $menu);
 
 if(empty($menu)) { $menu = "home"; }
 
+if (substr($menu,0,4)=="wiki"){ 
+	$menu = "wiki"; 
+	$location = "http://wiki.phplondon.org".$_SERVER['REQUEST_URI'];
+	header ('HTTP/1.1 301 Moved Permanently');
+	header ('Location: '.$location);
+}
+	
+
 $smarty->assign("menu", $menu);
 
 $smarty->force_compile = false;
 $smarty->debugging = false;
 $smarty->caching = false;
 //$smarty->cache_lifetime = 120;
+
+
 
 $smarty->display('header.tpl');
 
