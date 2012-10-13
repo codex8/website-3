@@ -20,9 +20,14 @@ $menu = str_replace("/", "", $menu);
 
 if(empty($menu)) { $menu = "home"; }
 
-if (substr($menu,0,4)=="wiki"){ 
-	$menu = "wiki"; 
+if (substr($menu,0,4)=="wiki" || substr($menu,0,9)=="mediawiki"){ 
+ 
 	$location = "http://wiki.phplondon.org".$_SERVER['REQUEST_URI'];
+	
+	if($_SERVER['QUERY_STRING']) {
+            $location .= '?' . $_SERVER['QUERY_STRING'];
+    }
+	
 	header ('HTTP/1.1 301 Moved Permanently');
 	header ('Location: '.$location);
 }
