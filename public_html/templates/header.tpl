@@ -4,13 +4,13 @@
   <head>
     <meta charset="utf-8">
     <title>PHP London - {#title#} - The UK's number one PHP User group</title>
+	<meta name="google-site-verification" content="zvPGcBQCeX7sZRJqccKJ1oPWdPx7mtQDs2lJywSngoU" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <!-- Le styles -->
     <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./bootstrap/css/phplondon.css" rel="stylesheet">
     <style type="text/css">
 	{literal}
       body {
@@ -31,7 +31,7 @@
 
   <body>
 	 <div id="fb-root"></div>
-	<!--<script>
+	<script>
 	{literal}
 	(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
@@ -41,7 +41,7 @@
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
 	{/literal}
-	</script>-->
+	</script>
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -53,9 +53,21 @@
           <a class="brand" href="./">{#name#}</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li{if $menu eq 'home'} class="active" {/if}><a href="./">Home</a></li>
-              <li{if $menu eq 'about'} class="active" {/if}><a href="./about">About</a></li>
-              <li{if $menu eq 'contact'} class="active" {/if}><a href="./contact">Contact</a></li>
+              <li 
+				{if $menu eq 'home'}
+					class="active"
+				{/if}
+			  ><a href="./">Home</a></li>
+              <li
+				{if $menu eq 'about'}
+					class="active"
+				{/if}
+			  ><a href="./about">About</a></li>
+              <li
+			  	{if $menu eq 'contact'}
+					class="active"
+				{/if}
+			  ><a href="./contact">Contact</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

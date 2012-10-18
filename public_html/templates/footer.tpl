@@ -4,7 +4,7 @@
 	  <hr>
 
       <footer>
-        <p>&copy; PHP London Ltd 2012</p>
+        <p>&copy; PHP London Ltd 2012, generously hosted by <a target="_blank" href="http://www.bytemark.co.uk"><img width="120" height="10" alt="Bytemark Hosting" src="/bootstrap/img/bytemark.png"></a></p>
       </footer>
 
     </div> <!-- /container -->
