@@ -8,7 +8,7 @@
         </div>
         <div class="span4">
           <h2>PHP Jobs</h2>
-           <p>View and post Job offers from from select London based companies. Posts from recruiters or companies are welcome.</p>
+           <p>View and post Job offers from from select London based companies. Posts from companies are welcome.</p>
           <p><a class="btn" href="http://wiki.phplondon.org/wiki/Job_offers">View Jobs &raquo;</a></p>
        </div>
         <div class="span4">
