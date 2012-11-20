@@ -6,7 +6,7 @@ function my_function_admin_bar(){ return false; }
 add_filter( 'show_admin_bar' , 'my_function_admin_bar');
 
 /*
- * Add menu support for phplondon.
+ * Add menu support 
  */
 register_nav_menus( array(
         'primary' => __( 'Primary Menu', 'phplon' ),
@@ -43,8 +43,10 @@ function next_meetup() {
     }
        
     $plusOneDetails['date'] = date("F jS Y - ga", $next_meetup->results[1]->time/1000);
+    $plusOneDetails['meetupURL'] = $next_meetup->results[1]->event_url;
       
     $plusTwoDetails['date'] = date("F jS Y - ga", $next_meetup->results[2]->time/1000);
+    $plusTwoDetails['meetupURL'] = $next_meetup->results[2]->event_url;
     
     $meetUpDetails = array( 'next' => $nextDetails,
 	                        'plusOne' => $plusOneDetails,
@@ -74,9 +76,10 @@ function loadFile($sFilename, $sCharset = 'UTF-8')
             $sData .= fread($rHandle, filesize($sFilename));
         fclose($rHandle);
     }
-    
+ /*TODO Temporary removal as test site does not have mb_string      
     if ($sEncoding = mb_detect_encoding($sData, 'auto', true) != $sCharset)
         $sData = @mb_convert_encoding($sData, $sCharset, $sEncoding);
+ */
     return $sData;
 }
 
@@ -87,7 +90,7 @@ function side_nav() {
 			    <p class="menu-heading">FIND OUT MORE</p>	
 		  		<div id="menu-container">				
 				<?php 
-				$li_image = get_template_directory_uri(). '/images/MenuBullet.png';
+				$li_image = get_template_directory_uri(). '/images/menu-bullet.png';
 				wp_nav_menu( array( 'theme_location' => 'primary', 'after' => '<img src="'. $li_image . '" class="list-image" height="12px" width="12px"/>') ); ?>
 				</div>
 			</nav>
@@ -97,13 +100,13 @@ function side_nav() {
 			   <a href="http://www.meetup.com/phplondon/">
 			   <img src="<?php echo get_template_directory_uri() ?>/images/Social1.png" class="alignright"/>
 			   </a>
-			   <br>
+			   
 		       </div>
 		       <div class="row">
 		       <a href="https://twitter.com/PHPLondon">
 			   <img src="<?php echo get_template_directory_uri() ?>/images/Social2.png" class="alignright"/>
 			   </a>
-			   <br>
+			   
 			   </div>
 		      
 			</div>

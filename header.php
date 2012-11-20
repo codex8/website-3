@@ -70,7 +70,6 @@
 		    <nav id="access-mobile">
 		    <?php wp_nav_menu( array( 'theme_location' => 'primary', 'container_class' => 'menu-phplon-mobile') ); ?>
 		    </nav>
-			<!--  <img class="header-img" src="<?php echo get_template_directory_uri(); ?>/images/HeaderWithOverlay.png" alt="HeaderImage">-->
 			<div id="phplon-logo">
 			<a href="<?php echo home_url( '/' ); ?>" rel="Home">
 			 <img src="<?php echo get_template_directory_uri(); ?>/images/Logo.png" alt="Logo">

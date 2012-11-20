@@ -46,13 +46,8 @@ and (max-width: 767px) {
 	#primary {
 	padding-top: 0px;
 	padding-left: 20px;
-	padding-right: 10px;
-	padding-bottom: 0px;
 	}
-	#home-content {
-	margin-top: 20px;
 	
-	}
 	img.main-img {
 		display: none;
 	}

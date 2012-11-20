@@ -1,6 +1,8 @@
 <?php
 get_header(); 
-        side_nav();	
+?>
+<div id="main-container" class="row">
+        <?php side_nav();	
 		?>
 
 		<div id="primary" class="ninecol last">
@@ -48,5 +50,6 @@ get_header();
 			</div><!-- #content -->
 			</div><!-- #primary-container -->
 		</div><!-- #primary -->
+		</div>
 
 <?php get_footer(); ?>
