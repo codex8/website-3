@@ -6,7 +6,7 @@ function my_function_admin_bar(){ return false; }
 add_filter( 'show_admin_bar' , 'my_function_admin_bar');
 
 /*
- * Add menu support for phplondon. 
+ * Add menu support for phplondon 
  */
 register_nav_menus( array(
         'primary' => __( 'Primary Menu', 'phplon' ),
