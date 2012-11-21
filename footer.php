@@ -14,7 +14,9 @@
 </div><!-- #page -->
 <div id="footer" class="footer">
 
-<p> PHP London Limited is registered in England and Wales. Company number: 6770512. VAT number: 943 4927 00.
+<p> PHP London Limited is registered in England and Wales. Company number: 6770512. VAT number: 943 4927 00.</p>
+<p>Help us make this site better: 
+<a href="https://github.com/PHPLondon/website/issues">Raise an issue at Github</a></p>
 
 </div>
 
