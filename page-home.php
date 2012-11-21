@@ -65,8 +65,9 @@ at <?php echo $meetUpDetails['next']['venueName'] ?></p>
 <div class="sixcol last">
 <div class="home-main-content">
 <h1>Job Board</h1>
-<p class='purple'>Check out our job listings for the best PHP jobs in London. Advertising your job here costs £50 + VAT for a month, we accept 
-aadvertisements from companies and individuals but not from recruiters. Please read the <a href="http://wiki.phplondon.org/wiki/Job_offer_FAQ">FAQs</a> before emailing us, thanks.</p>
+<p class='purple'>Check out our job listings for the best PHP jobs in London.</p>
+<p> Advertising your job here costs &#163;50 + VAT for a month, we accept 
+advertisements from companies and individuals but not from recruiters. Please read the <a href="http://wiki.phplondon.org/wiki/Job_offer_FAQ">FAQs</a> before emailing us, thanks.</p>
 <p>&nbsp;&nbsp;&raquo;&nbsp;<a href="<?php echo home_url( '/jobs' ); ?>" rel="Jobs">See full listing here</a></p>
 <p>&nbsp;&nbsp;&raquo;&nbsp;<a href="mailto:secretary@phplondon.org?Subject=JobAdvert">Advertise your job</a></p>
 </div>
