@@ -49,6 +49,7 @@
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/1140.css" />
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/style.css" />
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/media-styles.css" />
+<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.ico" />
 
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.8.0.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/css3-mediaqueries.js"></script>
