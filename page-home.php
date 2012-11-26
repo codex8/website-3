@@ -19,8 +19,8 @@ $meetUpDetails = next_meetup();
 <div id="next-meetup"><b>Next Meetup: <?php echo $meetUpDetails['next']['date'] ?><br>
 </b> <?php echo $meetUpDetails['next']['venueAddress']?></div>
 <img class="map-pin"
-	src="<?php echo get_template_directory_uri(); ?>/images/mapPin.png"
-	alt="mapPin"></div>
+	src="<?php echo get_template_directory_uri(); ?>/images/MapPin.png"
+	alt="MapPin"></div>
 
 
 <div id="home-top-row" class="row">
