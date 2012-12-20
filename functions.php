@@ -35,9 +35,22 @@ function next_meetup() {
     $nextDetails['date'] = date("F jS Y - ga", $next_meetup->results[0]->time/1000);
     $nextDetails['description'] = $next_meetup->results[0]->description;
     
+    $pretty = print_r($nextDetails['description'], true);
+	file_put_contents("/tmp/wtf", $pretty, FILE_APPEND);
+   
+    
     //Extract the agenda and talk topic if possible. Relies on keeping a consistent format in Meetup.
-    if(preg_match('/(Agenda.*)About/s', $nextDetails['description'], $matches) ) {   	
-		$nextDetails['description']= $matches[1];
+    
+    if(preg_match('/Title:<\/span>\s*<span style="color : #000000 ; font-size : medium">(.*?)<\/span>/s', $nextDetails['description'], $matches) ) {   	
+		$td= "<h2>" . $matches[1] . "</h2>";
+		if(preg_match('/By:<\/span>\s*<span style="color : #000000 ; font-size : medium">(.*?)<\/span>/s', $nextDetails['description'], $matches) ) {   	
+		$td .= " <br> By: <strong>" . $matches[1] . "</strong></br>";
+		}
+		if(preg_match('/About:<\/span>\s*<span style="color : #000000 ; font-size : medium">(.*?)<\/span>/s', $nextDetails['description'], $matches) ) {   	
+		$td .= " <br>" . $matches[1];
+		}
+	$nextDetails['description'] = $td;	
+		
     } else {
     	$nextDetails['description']= 'See <a href="'. $nextDetails['meetupURL'] .'">Meetup</a> site for details';
     }
