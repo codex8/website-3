@@ -269,7 +269,7 @@ function apply_to() {
 	    		$content .	 	   	   
 	    		'</div>' .
 	    		'<div class="job-apply-button">
-	    		<a href="mailto:' . $email . '">Apply Now</a></div>';
+	    		<a href="mailto:' . $email . '?Subject=PHPLondon%20application">Apply Now</a></div>';
  
 	return $output;
 }
