@@ -34,6 +34,7 @@ a:hover {
 h1 {
 	padding-bottom: 10px;
 }
+
 #branding {
 	max-width: 1140px;
 	margin: 0 auto;
@@ -76,6 +77,7 @@ h1 {
 	width: 90%;
 	margin: 0 auto;	
 	}
+
 
 /* Alignment */
 .alignleft {
@@ -282,4 +284,62 @@ height: 171px;
 }
 #colophon {
 	padding: 1em 0 0;
+}
+
+/* =Jobs
+-------------------------------------------------------------- */
+#job-description {
+	padding: 30px;
+}
+#job-listing {
+	padding: 30px;
+}
+.job-title {
+	padding-top:30px;
+	padding-bottom: 20px;
+	font-weight: bold;
+}
+.job-title-single {
+	padding-top:30px;
+	padding-bottom: 20px;
+	font-weight: bold;
+	text-align: center;
+	font-size: 120%;
+}
+.job-salary {
+	padding-bottom: 20px;
+}
+.job-startdate {
+	padding-bottom: 20px;
+}
+.job-summary {
+	padding-bottom: 30px;
+	border-bottom: 1px solid #9d9fc3;
+	}
+.job-detail {
+	padding-bottom: 30px;	
+	}
+.job-apply-button {
+	margin: 30px 0;
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	padding: .5em 2em .55em;
+	text-shadow: 0 1px 1px #7d4f16;
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	min-width: 70px;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f1a511), to(#da9e26));
+	background: -moz-linear-gradient(top,  #f1a511,  #da9e26);
+	}
+ul.job-apply-list {
+	list-style-type: circle;
+	padding-left: 35px;
+	padding-bottom: 10px;
 }
