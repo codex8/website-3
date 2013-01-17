@@ -306,10 +306,7 @@ height: 171px;
 	text-align: center;
 	font-size: 120%;
 }
-.job-salary {
-	padding-bottom: 20px;
-}
-.job-startdate {
+.job-info {
 	padding-bottom: 20px;
 }
 .job-summary {

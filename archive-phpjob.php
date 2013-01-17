@@ -14,35 +14,41 @@ side_nav();
 <div id="primary-container">	
 <div id="job-listing">	
 <h2>Job Listing</h2>
-	     <?php if (have_posts() ) :
+	     <?php if (have_posts() ) {
 								
-		  $number_of_current_postsings = 0;
-	      while ( have_posts() ) : the_post();
-	        if(isValidPosting()) {
-	            $number_of_current_postings++;
-	     	    echo display_job_summary();
-	        }
-	        if($number_of_current_postings++ == 0) {
+		      $number_of_current_postings = 0;
+	          while ( have_posts() ) : the_post();
+	           if(isValidPosting()) {
+	                $number_of_current_postings++;
+	     	        echo display_job_summary();
+	            }
+	           endwhile;
+	           
+	            if($number_of_current_postings++ == 0) {
 	            ?>
 	            <div><p>We have no jobs to advertise this month!</p>
 	            <p>Advertising your job here costs &#163;50 + VAT for a month, we accept 
 advertisements from companies and individuals but not from recruiters. Please read the <a href="http://wiki.phplondon.org/wiki/Job_offer_FAQ">FAQs</a> before emailing us, thanks.</p>
 <p>&nbsp;&nbsp;&raquo;&nbsp;<a href="mailto:secretary@phplondon.org?Subject=JobAdvert">Advertise your job</a></p></div>
 	            <?php 
-	        }
-	     endwhile;
+	            }
+	    
 
 	
-			 else : ?>
+	     } else { ?>
 
 				<article id="post-0" class="post no-results not-found">
 
 					<div class="entry-content">
-						<p><?php echo "No PHP Jobs found"; ?></p>
+					<div><p>We have no jobs to advertise this month!</p>
+	            <p>Advertising your job here costs &#163;50 + VAT for a month, we accept 
+advertisements from companies and individuals but not from recruiters. Please read the <a href="http://wiki.phplondon.org/wiki/Job_offer_FAQ">FAQs</a> before emailing us, thanks.</p>
+<p>&nbsp;&nbsp;&raquo;&nbsp;<a href="mailto:secretary@phplondon.org?Subject=JobAdvert">Advertise your job</a></p></div>
+						
 					</div><!-- .entry-content -->
 				</article><!-- #post-0 -->
 
-			<?php endif; ?>
+			<?php } ?>
 
 </div><!-- job-listing -->
 </div>

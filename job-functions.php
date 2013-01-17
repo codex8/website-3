@@ -1,4 +1,26 @@
 <?php
+//Modify the jobs listing query so that we only get jobs with a display date later than today
+function job_list_query( $query ) {
+
+	if( $query->is_main_query() && !is_admin() && is_post_type_archive( 'phpjob' ) ) {
+		$meta_query = array(
+			array(
+				'key' => 'display_enddate_secs',
+				'value' => time(),
+				'compare' => '>'
+			)
+		);
+		$query->set( 'meta_query', $meta_query );
+		$query->set( 'orderby', 'meta_value_num' );
+		$query->set( 'meta_key', 'display_enddate_secs' );
+		$query->set('orderby', 'meta_value_num');
+        $query->set('order', 'ASC');
+	}
+ 
+}
+ 
+add_action( 'pre_get_posts', 'job_list_query' );
+
 add_action('init', 'create_phpjobs_post_type');
 /*
  * Create phpjobs post type
@@ -52,7 +74,7 @@ function phpjob_link_cb()
 	
 	phpj_add_startdate($values);
 	
-	phpj_add_enddate($values);
+	phpj_add_location($values);
 	
 	phpj_add_salary($values);
 	
@@ -81,7 +103,7 @@ function phpjob_metadata_save( $post_id )
 	
 	phpj_save_startdate($post_id);
 	
-	phpj_save_enddate($post_id);
+	phpj_save_location($post_id);
 	
 	phpj_save_salary($post_id);
 	
@@ -100,16 +122,16 @@ function phpj_add_startdate ($values) {
     $job_startdate = isset( $values['job_startdate'] ) ? esc_attr( $values['job_startdate'][0] ) : "";
     ?>
  	<p><label for="job_startdate"><b>Job Start Date</b></label></p>
-	<p style="color: #7a7a7a">Date in format DD-MM-YYYY</p>
+	<p style="color: #7a7a7a">Date or date range as a string, for example: Early March 2013</p>
 	<p><input type="text" name="job_startdate" id="job_startdate" value="<?php echo $job_startdate; ?>" size="80" /></p>	
 	<?php
 }
-function phpj_add_enddate ($values) {
-    $job_enddate = isset( $values['jobenddate'] ) ? esc_attr( $values['jobenddate'][0] ) : "";
+function phpj_add_location ($values) {
+    $location = isset( $values['location'] ) ? esc_attr( $values['location'][0] ) : "";
     ?>
- 	<p><label for="job_enddate"><b>Job End Date (only if not a permanent role)</b></label></p>
-	<p style="color: #7a7a7a">Date in format DD-MM-YYYY</p>
-	<p><input type="text" name="job_enddate" id="job_enddate" value="<?php echo $job_enddate; ?>" size="80" /></p>	
+ 	<p><label for="location"><b>Location</b></label></p>
+	<p style="color: #7a7a7a">String eg: London</p>
+	<p><input type="text" name="location" id="location" value="<?php echo $location; ?>" size="80" /></p>	
 	<?php
 }
 function phpj_add_display_startdate ($values) {
@@ -146,35 +168,35 @@ function phpj_add_email($values) {
 }
 function phpj_save_startdate($post_id) {	
 	if( isset( $_POST['job_startdate'] ) ) {		
-    	if(preg_match('/\d+\-\d+\-\d+/', $_POST['job_startdate'])) {
-			update_post_meta( $post_id, 'job_startdate', $_POST['job_startdate'] );
-    	} else {
-    		update_post_meta( $post_id, 'job_startdate', '' );
-    	}
+		update_post_meta( $post_id, 'job_startdate', $_POST['job_startdate'] );
 	}
 }
-function phpj_save_enddate($post_id) {	
-	if( isset( $_POST['job_enddate'] ) ) {		
-    	if(preg_match('/\d+\-\d+\-\d+/', $_POST['job_enddate'])) {
-			update_post_meta( $post_id, 'job_enddate', $_POST['job_enddate'] );
-    	} else {
-    		update_post_meta( $post_id, 'job_enddate', '' );
-    	}
+function phpj_save_location($post_id) {	
+	if( isset( $_POST['location'] ) ) {		    	
+			update_post_meta( $post_id, 'location', $_POST['location'] );
 	}
 }
-function phpj_save_display_startdate($post_id) {	
+function phpj_save_display_startdate($post_id) {
+    date_default_timezone_set('UTC');	
 	if( isset( $_POST['display_startdate'] ) ) {		
     	if(preg_match('/\d+\-\d+\-\d+/', $_POST['display_startdate'])) {
+    	    $s = new DateTime($_POST['display_startdate']);
+    	    $su = $s->format("U");
 			update_post_meta( $post_id, 'display_startdate', $_POST['display_startdate'] );
+			update_post_meta( $post_id, 'display_startdate_secs', $su );
     	} else {
     		update_post_meta( $post_id, 'display_startdate', '' );
     	}
 	}
 }
 function phpj_save_display_enddate($post_id) {	
+    date_default_timezone_set('UTC');
 	if( isset( $_POST['display_enddate'] ) ) {		
     	if(preg_match('/\d+\-\d+\-\d+/', $_POST['display_enddate'])) {
+    	    $e = new DateTime($_POST['display_enddate']);
+    	    $eu = $e->format("U");
 			update_post_meta( $post_id, 'display_enddate', $_POST['display_enddate'] );
+			update_post_meta( $post_id, 'display_enddate_secs', $eu );
     	} else {
     		update_post_meta( $post_id, 'display_enddate', '' );
     	}
@@ -204,6 +226,7 @@ function display_job_summary() {
     $title = get_the_title();
  	$salary = get_post_meta(get_the_id(), "salary", true);
  	$start_date = get_post_meta(get_the_id(), "job_startdate", true);
+ 	$location = get_post_meta(get_the_id(), "location", true);
  	$summary = get_the_excerpt();
 
  	
@@ -211,11 +234,14 @@ function display_job_summary() {
  	$output =  '<div class="job-title">' .
  	           $title .
  	           '</div> ' . 
- 	           '<div class="job-salary"><b>Salary:</b> ' .
+ 	           '<div class="job-info"><b>Salary:</b> ' .
  	           $salary .
  	           '</div> ' . 
- 	           '<div class="job-startdate"><b>Start date: </b> ' .
+ 	           '<div class="job-info"><b>Start date: </b> ' .
  	           $start_date .
+ 	           '</div> ' .
+ 	           '<div class="job-info"><b>Location: </b> ' .
+ 	           $location .
  	           '</div> ' .
  	            '<div class="job-summary"><b>Summary: </b>'.	    		    
 	    		$summary .	 	   	   
@@ -239,11 +265,14 @@ function display_job() {
  	$output =  '<div class="job-title-single">' .
  	           $title .
  	           '</div> ' . 
- 	           '<div class="job-salary"><b>Salary:</b> ' .
+ 	           '<div class="job-info"><b>Salary:</b> ' .
  	           $salary .
  	           '</div> ' . 
- 	           '<div class="job-startdate"><b>Start date: </b> ' .
+ 	           '<div class="job-info"><b>Start date: </b> ' .
  	           $start_date .
+ 	           '</div> ' .
+ 	           '<div class="job-info"><b>Location: </b> ' .
+ 	           $location .
  	           '</div> ' .
  	            '<div class="job-detail"><b>Description: </b>'.	    		    
 	    		$content .	 	   	   
@@ -274,24 +303,19 @@ function apply_to() {
 	return $output;
 }
 /*
- * Work out if this is a current posting
+ * Work out if this is a current posting. No need to check end date as that was done in the query for archive.
+ * But do need to check for single posts that may have been saved as links.
  */
 function isValidPosting() {
-    $s = get_post_meta(get_the_id(), "display_startdate", true);
- 	$e = get_post_meta(get_the_id(), "display_enddate", true);
- 	
+    $s = get_post_meta(get_the_id(), "display_startdate_secs", true);
+    $e = get_post_meta(get_the_id(), "display_enddate_secs", true);
+ 	 	
 	date_default_timezone_set('UTC');
 
 	$now = new DateTime();
 	$nowInSecondsSinceEpoch = $now->format("U");
-	
-	$start = new DateTime($s);
-	$startInSecondsSinceEpoch = $start->format("U");
-	
-	$end = new DateTime($e);
-	$endInSecondsSinceEpoch = $end->format("U");
-	
-	if (( $nowInSecondsSinceEpoch > $startInSecondsSinceEpoch) && ( $nowInSecondsSinceEpoch < $endInSecondsSinceEpoch)) {
+		
+	if(( $nowInSecondsSinceEpoch > $s) && ($nowInSecondsSinceEpoch < $e )) {
 		return true;
 	}
 	return false;
