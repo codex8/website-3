@@ -257,6 +257,7 @@ function display_job() {
     $title = get_the_title();
  	$salary = get_post_meta(get_the_id(), "salary", true);
  	$start_date = get_post_meta(get_the_id(), "job_startdate", true);
+ 	$location = get_post_meta(get_the_id(), "location", true);
  	$email = get_post_meta(get_the_id(), "email", true);
  	$content = get_the_content();
 
@@ -274,7 +275,7 @@ function display_job() {
  	           '<div class="job-info"><b>Location: </b> ' .
  	           $location .
  	           '</div> ' .
- 	            '<div class="job-detail"><b>Description: </b>'.	    		    
+ 	            '<div class="job-detail"><h2>Description</h2>'.	    		    
 	    		$content .	 	   	   
 	    		'</div>';
 	    		
