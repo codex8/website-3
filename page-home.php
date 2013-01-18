@@ -48,7 +48,7 @@ even try and find yourself a job. Anyone interested in PHP is welcome!</p>
 <div class="home-main-content">
 <h1>Upcoming Meetups</h1>
 <p class="purple">Our next meetup is <?php echo $meetUpDetails['next']['date'] ?>
-at <?php echo $meetUpDetails['next']['venueName'] ?></p>
+&nbsp;at&nbsp;<?php echo $meetUpDetails['next']['venueName'] ?></p>
 <div class="circle"><?php echo $meetUpDetails['next']['meetupYes']; ?></div>
 <p class="text-by-circle">PEOPLE ATTENDING</p>
 <p class="get-on-the-list">&raquo;&nbsp;<a
