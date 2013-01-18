@@ -28,7 +28,7 @@ side_nav();
 	            ?>
 	            <div><p>We have no jobs to advertise this month!</p>
 	            <p>Advertising your job here costs &#163;50 + VAT for a month, we accept 
-advertisements from companies and individuals but not from recruiters. Please read the <a href="http://wiki.phplondon.org/wiki/Job_offer_FAQ">FAQs</a> before emailing us, thanks.</p>
+advertisements from companies and individuals but not from recruiters. Please read the <a href="<?php site_url()?>/JobFAQs">FAQs</a> before emailing us, thanks.</p>
 <p>&nbsp;&nbsp;&raquo;&nbsp;<a href="mailto:secretary@phplondon.org?Subject=JobAdvert">Advertise your job</a></p></div>
 	            <?php 
 	            }
@@ -42,7 +42,7 @@ advertisements from companies and individuals but not from recruiters. Please re
 					<div class="entry-content">
 					<div><p>We have no jobs to advertise this month!</p>
 	            <p>Advertising your job here costs &#163;50 + VAT for a month, we accept 
-advertisements from companies and individuals but not from recruiters. Please read the <a href="http://wiki.phplondon.org/wiki/Job_offer_FAQ">FAQs</a> before emailing us, thanks.</p>
+advertisements from companies and individuals but not from recruiters. Please read the <a href="<?php site_url()?>/JobFAQs">FAQs</a> before emailing us, thanks.</p>
 <p>&nbsp;&nbsp;&raquo;&nbsp;<a href="mailto:secretary@phplondon.org?Subject=JobAdvert">Advertise your job</a></p></div>
 						
 					</div><!-- .entry-content -->
