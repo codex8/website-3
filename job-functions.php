@@ -284,7 +284,7 @@ function display_job() {
 function apply_to() {    
     
  	$email = get_post_meta(get_the_id(), "email", true);
- 	$content = '<h3>How to apply</h2><p> To apply for this job,  have your:</p>' .
+ 	$content = '<h2>How to apply</h2><p> To apply for this job,  have your:</p>' .
  	           '<ul class="job-apply-list">' .
  	           '<li>Cover letter</li>'.
  	           '<li>CV</li>'.
@@ -294,7 +294,7 @@ function apply_to() {
  	           '<p>ready to hand and then click the button below to bring up email.</p>';
  	
 
- 	$output =  '<div class="job-detail">'.	    		    
+ 	$output =  '<div class="job-apply-to">'.	    		    
 	    		$content .	 	   	   
 	    		'</div>' .
 	    		'<div class="job-apply-button">

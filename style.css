@@ -316,6 +316,11 @@ height: 171px;
 .job-detail {
 	padding-bottom: 30px;	
 	}
+.job-apply-to {
+	padding-bottom: 10px;
+	padding-top: 30px;
+	border-top: 1px solid #9d9fc3; 	
+}
 .job-apply-button {
 	margin: 30px 0;
 	display: inline-block;
