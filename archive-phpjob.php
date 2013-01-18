@@ -13,7 +13,7 @@ side_nav();
 
 <div id="primary-container">	
 <div id="job-listing">	
-<h2>Job Listing</h2>
+<h2 class="joblist-heading">Job Listing</h2>
 	     <?php if (have_posts() ) {
 								
 		      $number_of_current_postings = 0;

@@ -79,7 +79,7 @@ h1 {
 	}
 .entry-content {
 	padding-bottom: 30px;
-	}
+}
 
 /* Alignment */
 .alignleft {
@@ -296,17 +296,26 @@ height: 171px;
 #job-listing {
 	padding: 30px;
 }
+.joblist-heading {
+	text-align: center;
+	font-size: 200%;
+	text-shadow: 1px 1px #232323;
+	color: #9d9fc3;
+	}
 .job-title {
 	padding-top:30px;
 	padding-bottom: 20px;
 	font-weight: bold;
+	font-size: 150%;
 }
 .job-title-single {
 	padding-top:30px;
 	padding-bottom: 20px;
 	font-weight: bold;
 	text-align: center;
-	font-size: 120%;
+	font-size: 200%;
+	text-shadow: 1px 1px #232323;
+	color: #9d9fc3;
 }
 .job-info {
 	padding-bottom: 20px;
