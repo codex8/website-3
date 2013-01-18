@@ -299,7 +299,8 @@ function apply_to() {
 	    		$content .	 	   	   
 	    		'</div>' .
 	    		'<div class="job-apply-button">
-	    		<a href="mailto:' . $email . '?Subject=PHPLondon%20application">Apply Now</a></div>';
+	    		<a href="mailto:' . $email . '?Subject=PHPLondon%20application"  
+	    		onClick="javascript: _gaq.push([\'_trackPageview\', \'/email/application\']);">Apply Now</a></div>';
  
 	return $output;
 }
