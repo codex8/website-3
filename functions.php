@@ -1,4 +1,6 @@
 <?php
+
+require(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'job-functions.php');
 /*
  * Fix a problem which puts a 28px space at the screen on some browsers
  */
@@ -11,7 +13,6 @@ add_filter( 'show_admin_bar' , 'my_function_admin_bar');
 register_nav_menus( array(
         'primary' => __( 'Primary Menu', 'phplon' ),
     ) );
-
 
 /* 
  * Get the details of the next meetup
